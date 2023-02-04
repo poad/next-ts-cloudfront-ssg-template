@@ -12,6 +12,13 @@ if [ $result -ne 0 ]; then
   cd "${CUR}"
   exit $result
 fi
+
+cd "${CURRENT}"
+result=$?
+if [ $result -ne 0 ]; then
+  cd "${CUR}"
+  exit $result
+fi
 echo ""
 pwd
 rm -rf node_modules && pnpm install && pnpm dedupe && pnpm lint-fix && pnpm all
