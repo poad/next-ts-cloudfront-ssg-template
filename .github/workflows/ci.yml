@@ -1,51 +1,60 @@
 name: Build and Test
- 
+
 on:
   pull_request:
     branches:
       - main
-  push:
-    branches:    
-    - main 
 
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   test:
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x, 18.x]
 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Use install pnpm
+      run: |
+        corepack enable && \
+        corepack prepare pnpm@7.26.3 --activate
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3.6.0
       with:
         node-version: ${{ matrix.node-version }}
         check-latest: true
-        cache: yarn
+        cache: pnpm
+        cache-dependency-path:  |
+          pnpm-lock.yaml
+          cdk/pnpm-lock.yaml
 
-    - name: Use yarn@stable
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      shell: bash
       run: |
-        corepack enable && \
-        corepack prepare yarn@stable --activate
-
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
     - uses: actions/cache@v3
-      id: yarn-cache
+      name: Setup pnpm cache
       with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-yarn-
+          ${{ runner.os }}-pnpm-store-
 
-    - run: yarn install
-    - run: yarn all
+    - name: Build
+      run: pnpm all
+    - name: Build (cdk)
+      working-directory: cdk
+      run: |
+        pnpm install && pnpm lint && pnpm build
 
   configure:
     runs-on: ubuntu-latest
