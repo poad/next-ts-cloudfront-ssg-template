@@ -10,16 +10,34 @@ on:
 env:
   OIDC_IAM_ROLE_ARN: ${{ secrets.OIDC_IAM_ROLE_ARN }}
   AWS_REGION: us-west-2
+  APP_NANE: next-cloudfront-template
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  test:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.runnable-check.outputs.skip }}
+    steps:
+    - name: Check runnable
+      id: runnable-check
+      run: |
+        if [ -z "${{ env.OIDC_IAM_ROLE_ARN }}" ]; then
+          echo "skip=true" >> $GITHUB_OUTPUT
+        else
+          echo "skip=false" >> $GITHUB_OUTPUT
+        fi
+
+  deploy:
+    needs: [prepare]
     strategy:
       matrix:
         node-version: [18.x]
+
+    if: needs.setup.outputs.skip != 'true'
 
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +54,7 @@ jobs:
       shell: bash
       run: |
         corepack enable && \
-        corepack prepare pnpm@7.27.0 --activate
+        corepack prepare pnpm@7.26.3 --activate
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3.6.0
@@ -71,16 +89,9 @@ jobs:
       run: |
         pnpm add -g aws-cdk
 
-    - name: Install AWS CLI
-      run: |
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip awscliv2.zip
-        sudo ./aws/install --update
-        rm -rf awscliv2.zip aws
-
-    - name: Build
-      run: pnpm all
-
     - name: deploy (cdk)
       working-directory: cdk
-      run: cdk deploy -c env=dev
+      run: |
+        cdk deploy \
+          -c appkName=${{ env.APP_NANE }} \
+          -c env=dev
