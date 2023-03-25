@@ -50,10 +50,14 @@ jobs:
           ${{ runner.os }}-pnpm-store-
 
     - name: Build
+      env:
+        CI: true
       run: pnpm all
 
     - name: Build (cdk)
       working-directory: cdk
+      env:
+        CI: true
       run: |
         pnpm install && pnpm lint && pnpm build
 
