@@ -8,6 +8,7 @@ import * as crypto from 'crypto';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as iam from 'aws-cdk-lib/aws-iam';
 
+// rome-ignore lint/suspicious/noEmptyInterface: <explanation>
 export interface NextCloudFrontTemplateStackConfig {}
 
 interface NextCloudFrontTemplateStackProps

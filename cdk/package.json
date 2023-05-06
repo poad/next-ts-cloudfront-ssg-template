@@ -11,7 +11,7 @@
     "format-check": "rome format bin lib",
     "format": "rome format --write bin lib",
     "check": "rome check bin lib",
-    "check-fix": "rome check --apply-suggested bin lib",
+    "check-fix": "rome check --apply-unsafe bin lib",
     "lint": "pnpm format-check && pnpm check",
     "lint-fix": "pnpm format && pnpm check-fix",
     "clean": "rimraf build",
@@ -35,10 +35,5 @@
     "constructs": "*",
     "esbuild": "*",
     "source-map-support": "*"
-  },
-  "resolutions": {
-    "got": ">=11.8.5",
-    "json5": ">=2.2.3",
-    "semver-regex": ">=3.1.3"
   }
 }
