@@ -57,6 +57,7 @@ jobs:
         run_install: |
           - recursive: true
             args: [--no-frozen-lockfile]
+          - args: [--global, aws-cdk]
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3.7.0
@@ -64,10 +65,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         check-latest: true
         cache: pnpm
-
-    - name: Install global packages
-      run: |
-        pnpm add -g aws-cdk
 
     - name: deploy (cdk)
       working-directory: cdk
