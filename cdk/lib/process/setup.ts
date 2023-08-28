@@ -4,7 +4,7 @@ import * as fs from 'fs';
 export const nextJsExport = () => {
   [`${process.cwd()}/../.next`, `${process.cwd()}/../out`].forEach((dir) => {
     if (fs.existsSync(dir)) {
-      fs.rmdirSync(dir, {
+      fs.rmSync(dir, {
         recursive: true,
       });
     }
