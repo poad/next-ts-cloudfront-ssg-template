@@ -8,8 +8,7 @@ import * as s3 from "aws-cdk-lib/aws-s3";
 import * as deployment from "aws-cdk-lib/aws-s3-deployment";
 import { Construct } from "constructs";
 
-// rome-ignore lint/suspicious/noEmptyInterface: <explanation>
-export interface NextCloudFrontTemplateStackConfig {}
+export type NextCloudFrontTemplateStackConfig = {};
 
 interface NextCloudFrontTemplateStackProps
 	extends NextCloudFrontTemplateStackConfig,
