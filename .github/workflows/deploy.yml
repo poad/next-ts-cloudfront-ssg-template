@@ -35,7 +35,7 @@ jobs:
     needs: [prepare]
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     if: needs.setup.outputs.skip != 'true'
 
@@ -54,6 +54,7 @@ jobs:
       name: Install pnpm
       id: pnpm-install
       with:
+        version: latest
         run_install: |
           - recursive: true
             args: [--no-frozen-lockfile]
