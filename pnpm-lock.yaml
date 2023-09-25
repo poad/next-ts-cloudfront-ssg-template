@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@types/node':
-        specifier: ^20.6.3
-        version: 20.6.3
+        specifier: ^20.6.5
+        version: 20.6.5
       '@types/react':
         specifier: ^18.2.22
         version: 18.2.22
@@ -219,24 +219,24 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@types/node@20.6.3:
-    resolution: {integrity: sha512-HksnYH4Ljr4VQgEy2lTStbCKv/P590tmPe5HqOnv9Gprffgv5WXAY+Y5Gqniu0GGqeTCUdBnzC3QSrzPkBkAMA==}
+  /@types/node@20.6.5:
+    resolution: {integrity: sha512-2qGq5LAOTh9izcc0+F+dToFigBWiK1phKPt7rNhOqJSr35y8rlIBjDwGtFSgAI6MGIhjwOVNSQZVdJsZJ2uR1w==}
     dev: false
 
-  /@types/prop-types@15.7.6:
-    resolution: {integrity: sha512-RK/kBbYOQQHLYj9Z95eh7S6t7gq4Ojt/NT8HTk8bWVhA5DaF+5SMnxHKkP4gPNN3wAZkKP+VjAf0ebtYzf+fxg==}
+  /@types/prop-types@15.7.7:
+    resolution: {integrity: sha512-FbtmBWCcSa2J4zL781Zf1p5YUBXQomPEcep9QZCfRfQgTxz3pJWiDFLebohZ9fFntX5ibzOkSsrJ0TEew8cAog==}
     dev: false
 
   /@types/react@18.2.22:
     resolution: {integrity: sha512-60fLTOLqzarLED2O3UQImc/lsNRgG0jE/a1mPW9KjMemY0LMITWEsbS4VvZ4p6rorEHd5YKxxmMKSDK505GHpA==}
     dependencies:
-      '@types/prop-types': 15.7.6
-      '@types/scheduler': 0.16.3
+      '@types/prop-types': 15.7.7
+      '@types/scheduler': 0.16.4
       csstype: 3.1.2
     dev: false
 
-  /@types/scheduler@0.16.3:
-    resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
+  /@types/scheduler@0.16.4:
+    resolution: {integrity: sha512-2L9ifAGl7wmXwP4v3pN4p2FLhD0O1qsJpvKmNin5VA8+UvNVb447UDaAEV6UdrkA+m/Xs58U1RFps44x6TFsVQ==}
     dev: false
 
   /ansi-regex@5.0.1:
@@ -278,8 +278,8 @@ packages:
       streamsearch: 1.1.0
     dev: false
 
-  /caniuse-lite@1.0.30001538:
-    resolution: {integrity: sha512-HWJnhnID+0YMtGlzcp3T9drmBJUVDchPJ08tpUGFLs9CYlwWPH2uLgpHn8fND5pCgXVtnGS3H4QR9XLMHVNkHw==}
+  /caniuse-lite@1.0.30001539:
+    resolution: {integrity: sha512-hfS5tE8bnNiNvEOEkm8HElUHroYwlqMMENEzELymy77+tJ6m+gA2krtHl5hxJaj71OlpC2cHZbdSMX1/YEqEkA==}
     dev: false
 
   /client-only@0.0.1:
@@ -334,8 +334,8 @@ packages:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
     dev: false
 
-  /glob@10.3.5:
-    resolution: {integrity: sha512-bYUpUD7XDEHI4Q2O5a7PXGvyw4deKR70kHiDxzQbe925wbZknhOzUt2xBgTkYL6RBcVeXYuD9iNYeqoWbBZQnA==}
+  /glob@10.3.7:
+    resolution: {integrity: sha512-wCMbE1m9Nx5yD9LYtgsVWq5VhHlk5WzJirw594qZR6AIvQYuHrdDtIktUVjQItalD53y7dqoedu9xP0u0WaxIQ==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
@@ -420,7 +420,7 @@ packages:
       '@next/env': 13.5.2
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001538
+      caniuse-lite: 1.0.30001539
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -490,7 +490,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      glob: 10.3.5
+      glob: 10.3.7
     dev: true
 
   /scheduler@0.23.0:
