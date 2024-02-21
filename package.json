@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@types/node": "^20.11.19",
-    "@types/react": "^18.2.56",
+    "@types/react": "^18.2.57",
     "next": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,10 +31,9 @@
     "web-vitals": "^3.5.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "^1.5.3",
     "rimraf": "^5.0.5"
   },
-  "packageManager": "pnpm@8.7.4",
   "engines": {
     "npm": "use pnpm please!",
     "yarn": "use pnpm please!",
