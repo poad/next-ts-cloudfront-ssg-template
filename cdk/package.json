@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.10",
     "aws-cdk": "^2.140.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
@@ -29,7 +29,7 @@
   "dependencies": {
     "aws-cdk-lib": "^2.140.0",
     "constructs": "^10.3.0",
-    "esbuild": "^0.20.2",
+    "esbuild": "^0.21.0",
     "source-map-support": "^0.5.21"
   },
   "engines": {
