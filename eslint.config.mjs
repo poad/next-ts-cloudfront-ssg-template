@@ -22,6 +22,7 @@ export default tseslint.config(
       'node_modules/**/*',
       './.next/*',
       'out',
+      'cdk',
     ],
   },
   eslint.configs.recommended,
@@ -66,6 +67,8 @@ export default tseslint.config(
       'arrow-parens': ['error', 'always'],
       semi: ['error', 'always'],
       quotes: ['error', 'single'],
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
     },
   },
 );
