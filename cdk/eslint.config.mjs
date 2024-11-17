@@ -4,10 +4,10 @@ import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import stylisticTs from '@stylistic/eslint-plugin-ts';
 import tseslint from 'typescript-eslint';
+import pluginPromise from 'eslint-plugin-promise';
 // @ts-ignore
 import importPlugin from 'eslint-plugin-import';
 
-import pluginPromise from 'eslint-plugin-promise'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -51,6 +51,8 @@ export default tseslint.config(
       'arrow-parens': ['error', 'always'],
       indent: ['error', 2],
       quotes: ['error', 'single'],
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
     },
   },
 );

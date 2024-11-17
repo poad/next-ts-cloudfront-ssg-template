@@ -54,6 +54,7 @@ export default tseslint.config(
         typescript: {},
       },
     },
+    // @ts-ignore
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
