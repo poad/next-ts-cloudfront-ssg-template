@@ -1,22 +1,22 @@
-import * as childProcess from "node:child_process";
-import * as fs from "node:fs";
+import * as childProcess from 'node:child_process';
+import * as fs from 'node:fs';
 
 export const nextJsExport = () => {
-	[`${process.cwd()}/../.next`, `${process.cwd()}/../out`].forEach((dir) => {
-		if (fs.existsSync(dir)) {
-			fs.rmSync(dir, {
-				recursive: true,
-			});
-		}
-	});
-	["pnpm install -r", "pnpm all"].forEach((cmd) => {
-		childProcess.execSync(cmd, {
-			cwd: `${process.cwd()}/../`,
-			stdio: ["ignore", "inherit", "inherit"],
-			env: {
-				...process.env,
-			},
-			shell: "bash",
-		});
-	});
+  [`${process.cwd()}/../.next`, `${process.cwd()}/../out`].forEach((dir) => {
+    if (fs.existsSync(dir)) {
+      fs.rmSync(dir, {
+        recursive: true,
+      });
+    }
+  });
+  ['pnpm install -r', 'pnpm all'].forEach((cmd) => {
+    childProcess.execSync(cmd, {
+      cwd: `${process.cwd()}/../`,
+      stdio: ['ignore', 'inherit', 'inherit'],
+      env: {
+        ...process.env,
+      },
+      shell: 'bash',
+    });
+  });
 };
